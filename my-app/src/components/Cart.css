@@ -1,0 +1,29 @@
+.img-cart{
+    max-height: 100%;
+    max-width: 100%;
+}
+th{
+    max-width:  100px;
+    text-align: center
+}
+td{
+    text-align: center;
+    font-size: 24px;
+    font-weight: bolder;
+    line-height: 190px;
+}
+tr{
+    border-bottom: 1px solid silver;
+}
+.far {
+    color: red;
+    cursor: pointer;
+    transition: all.5 ease-in-out;
+    padding: 10px;
+}
+.far:hover{
+    transform: scale(1.2);
+}
+.far:active{
+    transform: scale(0.8);
+}

@@ -1,0 +1,2 @@
+export const ADD_TO_CART_SUCCESS ='ADD TO CART';
+export const MSG_CART_EMPTY ='CART EMPTY';

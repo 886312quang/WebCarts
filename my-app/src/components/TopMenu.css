@@ -1,0 +1,21 @@
+.boxNav {
+    background-color: #ffffff00;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    border-bottom: 0.5px solid #9b9b92b3;
+}
+.logo{
+    background-image: url("/my-app/public/img/logo1-1.png");
+    height: 80px;
+    width: 80px;
+    background-position: center;
+    background-size: cover;
+}
+.navl{
+    padding-right:100px;
+}
+.fad.fa-cart-plus{
+    color: #ff4e56;
+}
