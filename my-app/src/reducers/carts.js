@@ -2,9 +2,20 @@ import * as Types from './../contants/ActionType';
 var data = JSON.parse(localStorage.getItem('CART'));
 var initialState = data ? data : [];
 
+var findProductInCart = (cart, product) => {
+    var index = -1;
+    if (cart.length > 0) {
+        for (var i = 0; i < cart.length; i++) {
+            if (cart[i].product.id === product.id) {
+                index = i;
+            }
+        }
+    }
+    return index;
+}
 const carts = (state = initialState, action) => {
     var { product, quantity } = action;
-    var index = -1;
+    var index = -1; // khong tim thay => index=-1
     switch (action.type) {
         case Types.ADD_TO_CART:
             index = findProductInCart(state, product);
@@ -18,18 +29,15 @@ const carts = (state = initialState, action) => {
             }
             localStorage.setItem('CART',JSON.stringify(state));
             return [...state];
+        case Types.REMOVE_ITEM_IN_CART:
+            index = findProductInCart(state,product);
+            if(index !== -1){
+                state.splice(index,1);
+            }
+            localStorage.setItem('CART',JSON.stringify(state));
+            return [...state];
         default: return [...state];
     }
 }
-var findProductInCart = (cart, product) => {
-    var index = -1;
-    if (cart.length > 0) {
-        for (var i = 0; i < cart.length; i++) {
-            if (cart[i].product.id === product.id) {
-                index = i;
-            }
-        }
-    }
-    return index;
-}
+
 export default carts;

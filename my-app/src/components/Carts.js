@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Table, Container } from "reactstrap";
-
+import MessagesContainer from "./../containers/MessagesContainer";
 class Carts extends Component {
     render() {
         return (
@@ -19,6 +19,7 @@ class Carts extends Component {
                         {this.props.children}
                     </tbody>
                 </Table>
+                <MessagesContainer/>
             </Container>
         );
     }

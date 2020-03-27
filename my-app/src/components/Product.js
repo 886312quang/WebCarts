@@ -5,6 +5,7 @@ import {
 } from 'reactstrap';
 import './Product.css'
 import { Link } from "react-router-dom";
+import * as Messages from './../contants/Messages';
 class Product extends Component {
     render() {
         var { product } = this.props;
@@ -17,7 +18,7 @@ class Product extends Component {
                         <CardText>
                         <ul className="rating">
                             <li>
-                              {this.showRating(product.rating)}
+                                {this.showRating(product.rating)}
                             </li>
                         </ul>
                         </CardText>
@@ -25,7 +26,7 @@ class Product extends Component {
                        
                         <CardText className="inventory">Warehouse:{product.inventory}</CardText>
                         <div className="cart">
-                            <a onClick={() => this.onAddtocart(product)}>
+                            <a onClick={() => this.onAddtocart(product)} >
                                 <Button>Addtocart</Button>
                                 <Link to="/cart"> <i className="fad fa-cart-plus Card-cart"></i></Link>   
                             </a>
@@ -48,7 +49,7 @@ class Product extends Component {
     }
     onAddtocart = (product) => {
         this.props.onAddtocart(product);
+        this.props.onChangeMessages(Messages.ADD_TO_CART_SUCCESS);
     }
-   
 }
 export default Product;

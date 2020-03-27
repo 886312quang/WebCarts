@@ -27,3 +27,13 @@ td i.far:hover{
 td i.far:active{
     transform: scale(0.8);
 }
+.fad.fa-trash{
+    transition: all.3s ease-in-out;
+    cursor: pointer;
+}
+.fad.fa-trash:hover{
+    transform: scale(1.2);
+}
+.fad.fa-trash:active{
+    transform: scale(0.9);
+}

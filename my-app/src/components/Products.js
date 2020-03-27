@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-
 import { Row, Container } from "reactstrap";
-import TopMenu from './TopMenu'
-
+import TopMenu from './TopMenu';
+import MessagesContainer from "./../containers/MessagesContainer";
 class Products extends Component {
 
     render() {
@@ -20,7 +19,9 @@ class Products extends Component {
                             {this.props.children}
                         </Row>
                     </section>
+                    <MessagesContainer/>
                 </Container>
+               
             </div>
         );
     }

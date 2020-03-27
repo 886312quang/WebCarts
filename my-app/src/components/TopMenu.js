@@ -36,7 +36,7 @@ const TopMenu = (props) => {
 
                                  <NavItem >
                                     <NavLink>
-                                        <Link to="/">Home</Link>
+                                       
                                     </NavLink>
                                 </NavItem>
                                 <NavItem >

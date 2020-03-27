@@ -17,7 +17,7 @@ var initialState = [
     }
     ,
     {
-        id:2,
+        id:3,
         name: 'Sony',
         img: "https://salt.tikicdn.com/cache/w1200/ts/product/41/08/aa/22701a48571e24b13154786e8407f6f4.jpg",
         price: 500,
