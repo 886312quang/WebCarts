@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import "./fontawesome-pro-5.12.0-web/css/all.css"
 import "../components/Footer.css"
-import { Row, Button, Col, Input } from 'reactstrap';
+import { Row, Button, Col, Input, Container } from 'reactstrap';
 
 const Footer = (props) => {
     return (
         <div>
         <footer>
-            <div className="container-footer">
+            <Container>
                 <Row>
                     <Col sm="auto">
                         <div className="subscribe-box">
@@ -43,7 +43,7 @@ const Footer = (props) => {
                             </ul>
                         </div>
                     </Col>
-                    <Col>
+                    <Col sm="auto">
                         <div className="contact">
                             <h2>Contact</h2>
                             <ul className="text-contact">
@@ -55,7 +55,7 @@ const Footer = (props) => {
                         </div>
                     </Col>
                 </Row>
-            </div>
+            </Container>
         </footer>
         <div className="end-footer">
             <Row>

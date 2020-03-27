@@ -1,19 +1,27 @@
 import React, { Component } from "react";
 
 import { Row, Container } from "reactstrap";
+import TopMenu from './TopMenu'
 
 class Products extends Component {
 
     render() {
         return (
-            <Container>
-                <section className="section">
-                    <h1 className="section-heading text-center">All product</h1>     
-                    <Row>      
-                        {this.props.children}
-                    </Row>
-                </section>
-            </Container>
+            <div className="Products shadow-sm p-10 mb-6 bg-white rounded ">
+                <div className="MenuProduct">
+                    <TopMenu/>
+                    <h2 className="text-center">Shop</h2>
+                    <p className="text-center">Purchase Our Featured Products</p>
+                </div>
+                <Container>   
+                    <section className="section">
+                        <h1 className="section-heading text-center">All product</h1>     
+                        <Row>      
+                            {this.props.children}
+                        </Row>
+                    </section>
+                </Container>
+            </div>
         );
     }
 }

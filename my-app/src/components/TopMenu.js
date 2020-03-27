@@ -28,7 +28,7 @@ const TopMenu = (props) => {
         <div className="boxNav">
             <Container >
                 <Navbar className="NavBar" light expand="md">
-                    <NavbarBrand className="NavbarBrand" href="/"><img className="logo"  src={logo} ></img>  
+                    <NavbarBrand className="NavbarBrand" href="/"><img className="logo"  src={logo} alt="logo" ></img>  
                     </NavbarBrand>
                         <NavbarToggler onClick={toggle} />
                         <Collapse isOpen={isOpen} navbar>

@@ -15,15 +15,15 @@ td{
 tr{
     border-bottom: 1px solid silver;
 }
-.far {
+td i.far {
     color: red;
     cursor: pointer;
     transition: all.5 ease-in-out;
     padding: 10px;
 }
-.far:hover{
+td i.far:hover{
     transform: scale(1.2);
 }
-.far:active{
+td i.far:active{
     transform: scale(0.8);
 }

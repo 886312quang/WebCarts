@@ -1,3 +1,7 @@
+.Home{
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 header {
   background: url(./img/hero-image.jpg);
   width: 100%;
@@ -90,12 +94,13 @@ p {
 .text-about {
   padding-bottom: 20px;
 }
-.placeBox {
+.sec1 .placeBox {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  padding-left: 50px;
   padding-bottom: 20px;
 }
 .content-pic {
@@ -107,16 +112,23 @@ p {
   min-height: 600px;
   background: rgba(244, 67, 54, 0.59);
 }
+.sec2 .placeBox{
+    padding-left: -50px;
+    align-items: center;
+}
 .sec2 .header-sec2 {
   padding-top: 120px;
 }
 .sec2 .imgBox {
   padding-top: 120px;
+  align-items: center;
 }
 .sec3 {
   width: 100%;
   min-height: 550px;
   background: #f4f4f4;
+  padding-top: 40px;
+  margin: auto;
 }
 .container.sec3 {
   display: flex;
@@ -135,7 +147,6 @@ p {
   justify-content: flex-start;
 }
 .product-pic {
-  background-image: url(/img/color-speaker.jpg);
   width: 100%;
   height: 500px;
   font-size: 50%;
@@ -230,6 +241,7 @@ i.fad.fa-search {
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  padding-left: 50px;
 }
 .sec4 {
   width: 100%;
@@ -244,15 +256,14 @@ i.fad.fa-search {
   padding-bottom: 20px;
 }
 .img-bg {
+  background: url(./img/sec-4.jpg);
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  background-repeat: no-repeat;
-  background-image: url(/img/sec-4.jpg);
   min-width: 100%;
   height: 600px;
 }
 .img-play {
-  transform: translateY(-60px);
   cursor: pointer;
 }
 .img-bg h3 {
@@ -362,7 +373,7 @@ i.vote {
   padding-left: 150px;
 }
 .bdr {
-  border-right: 1px solid #141b7138;
+  border-right: 1px solid #9294a538;
 }
 .name-sec6 {
   color: white;
@@ -394,6 +405,9 @@ i.vote {
   font-size: 60px;
   font-weight: bold;
 }
+.sec7 .btn:hover{
+    background-color: black;
+}
 .text-sec7 {
   color: rgb(146, 128, 128);
 }
@@ -403,6 +417,10 @@ i.vote {
   color: white;
   background: #ff4e56;
   padding: 20px;
+}
+/*cart*/
+i.fad.fa-cart-plus {
+  font-size: 25px;
 }
 /*******************back**************************/
 .backhome {

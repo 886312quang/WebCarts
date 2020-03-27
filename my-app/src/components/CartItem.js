@@ -8,7 +8,7 @@ class CartItem extends Component {
         var {item} =this.props;
         return (
                 <tr>
-                <th scope="row"><img src={item.product.img} className="img-cart"/></th>
+                <th scope="row"><img src={item.product.img} alt={item.product.name} className="img-cart"/></th>
                 <td>{item.product.name}</td>
                 <td>{item.product.price}</td>
                 <td><i class="far fa-minus"></i> {item.quantity} <i class="far fa-plus"></i></td>
