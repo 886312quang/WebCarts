@@ -3,32 +3,41 @@ import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 import Carts from './../components/Carts';
 import CartItem from './../components/CartItem';
+import CartResult from './../components/CartResult';
 
 import * as Message from './../contants/Messages';
 
 class CartsContainer extends Component {
 
     render() {
-        var {cart} =this.props;
+        var { cart } = this.props;
         console.log(cart);
         return (
             <Carts>
-                 { this.showCartItem(cart) }
+                {this.showCartItem(cart)}
+                {this.showTotalAmount(cart)}
             </Carts>
         );
     }
     showCartItem = (cart) => {
         var result = Message.MSG_CART_EMPTY;
-        if(cart.length > 0){
-            result =cart.map((item,index)=>{
-                return(
-                    <CartItem 
-                    key={index}
-                    item={item}
-                    index={index}
+        if (cart.length > 0) {
+            result = cart.map((item, index) => {
+                return (
+                    <CartItem
+                        key={index}
+                        item={item}
+                        index={index}
                     />
                 )
             });
+        }
+        return result;
+    }
+    showTotalAmount = (cart) => {
+        var result = null;
+        if (cart.length > 0) {
+            result = <CartResult cart={cart} />
         }
         return result;
     }
@@ -45,11 +54,11 @@ CartsContainer.propType = {
         }).isRequired,
         quantity: PropTypes.number.isRequired
     })).isRequired
-    
+
 }
 const mapStateToProps = state => {
     return {
-        cart : state.carts
+        cart: state.carts
     }
 }
 export default connect(mapStateToProps, null)(CartsContainer);

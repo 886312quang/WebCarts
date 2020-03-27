@@ -25,8 +25,10 @@ class Product extends Component {
                        
                         <CardText className="inventory">Warehouse:{product.inventory}</CardText>
                         <div className="cart">
-                            <Button>Addtocart</Button>
-                            <Link to="/cart"> <i className="fad fa-cart-plus Card-cart"></i></Link>   
+                            <a onClick={() => this.onAddtocart(product)}>
+                                <Button>Addtocart</Button>
+                                <Link to="/cart"> <i className="fad fa-cart-plus Card-cart"></i></Link>   
+                            </a>
                         </div>
                     </CardBody>
                 </Card>
@@ -43,6 +45,9 @@ class Product extends Component {
             result.push(<i key={i+j} className="far fa-star"></i>)
         }
         return result;
+    }
+    onAddtocart = (product) => {
+        this.props.onAddtocart(product);
     }
    
 }
