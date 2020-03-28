@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Container } from "reactstrap";
-import TopMenu from './TopMenu';
+
 import MessagesContainer from "./../containers/MessagesContainer";
 class Products extends Component {
 
@@ -8,7 +8,6 @@ class Products extends Component {
         return (
             <div className="Products shadow-sm p-10 mb-6 bg-white rounded ">
                 <div className="MenuProduct">
-                    <TopMenu/>
                     <h2 className="text-center">Shop</h2>
                     <p className="text-center">Purchase Our Featured Products</p>
                 </div>

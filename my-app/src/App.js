@@ -1,24 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
-  Route
+  Route, Switch
 } from "react-router-dom";
-import Home from "./pages/Home";
 import Footer from "./components/Footer";
-import ProductsContainer from './containers/ProductsContainer';
-import CartsContainer from './containers/CartsContainer';
+import TopMenu from './components/TopMenu';
+import routes from './routes';
+import './App.css'
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Route path="/" exact component={Home} />
-        <Route path="/shop" exact component={ProductsContainer} />
-        <Route path="/cart" exact component={CartsContainer} />
-        <Footer />
-      </div>
-    </Router>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <TopMenu />
+          <Switch>
+            {this.showContentMenus(routes)}
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
+    );
+  }
+  showContentMenus = (routes) => {
+    var result = null;
+    if (routes.length > 0) {
+      result = routes.map((route, index) => {
+        return (
+          <Route
+            key={index}
+            path={route.path}
+            exact={route.exact}
+            component={route.main}
+          />
+        )
+      });
+    }
+    return result;
+  }
 }
-
 export default App;

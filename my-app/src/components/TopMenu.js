@@ -1,97 +1,86 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import logo from "./img/logo1-1.png";
 import "./fontawesome-pro-5.12.0-web/css/all.css"
 import {
-    Collapse,
     Navbar,
-    NavbarToggler,
     NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
     NavbarText,
     Container,
 
 } from 'reactstrap';
-import { Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import "../components/TopMenu.css";
 
-const TopMenu = (props) => {
-    const [isOpen, setIsOpen] = useState(false);
+const menus = [
+    {
+        name: 'Home',
+        to: '/',
+        exact: true
+    },
+    {
+        name: 'Shop',
+        to: '/shop',
+        exact: false
+    },
+    {
+        name: 'Cart',
+        to: '/cart',
+        exact: false
+    }
+]
 
-    const toggle = () => setIsOpen(!isOpen);
-
+const MenuLink = ({ label, to, activeOnlyWhenExact }) => {
     return (
-        <div className="boxNav">
-            <Container >
-                <Navbar className="NavBar" light expand="md">
-                    <NavbarBrand className="NavbarBrand" href="/"><img className="logo" src={logo} alt="logo" ></img>
-                    </NavbarBrand>
-                    <NavbarToggler onClick={toggle} />
-                    <Collapse isOpen={isOpen} navbar>
-                        <Nav className="mr-auto ml-auto" navbar>
+        <Route path={to} exact={activeOnlyWhenExact} children={({ match }) => {
+            var active = match ? 'active abc' : '';
+            return (
+                <li className={active}>
+                    <Link to={to}>
+                        {label}
+                    </Link>
+                </li>
+            )
+        }} />
+    )
+}
 
-                            <NavItem >
-                                <NavLink >
-                                    <Link to="/">Home</Link>
-                                </NavLink>
-                            </NavItem>
-                            <NavItem >
-                                <NavLink>
-                                    <li>
-                                        <Link to="/about">About</Link>
-                                    </li>
-                                </NavLink>
-                            </NavItem>
-                            <NavItem >
-                                <NavLink>
-                                    <li>
-                                        <Link to="/contact">Contact</Link>
-                                    </li>
-                                </NavLink>
-                            </NavItem>
-
-
-                            <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>
-                                    <NavLink>
-                                        <li>
-                                            <Link to="/shop">Shop</Link>
-                                        </li>
-                                    </NavLink>
-                                </DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem>
-                                        <Link to="/cart">Cart</Link>
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        CheckOut
-                </DropdownItem>
-                                    <DropdownItem divider />
-                                    <DropdownItem>
-                                        Go Shop
-                </DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
-
-                        </Nav>
+class TopMenu extends Component {
+    render() {
+        return (
+            <div className="boxNav">
+                <Container >
+                    <Navbar className="NavBar" light expand="md">
+                        <NavbarBrand className="NavbarBrand"><img className="logo" src={logo} alt="logo" ></img>
+                        </NavbarBrand>
+                        <ul className="mr-auto ml-auto" >
+                            {this.showMenus(menus)}
+                        </ul>
                         <NavbarText>
                             <div className="icon">
                                 <i className="fad fa-cart-plus"></i>
-
                             </div>
                         </NavbarText>
-
-                    </Collapse>
-                </Navbar>
-            </Container>
-        </div>
-
-    );
+                    </Navbar>
+                </Container>
+            </div>
+        );
+    }
+    showMenus = (menus) => {
+        var result =null;
+        if(menus.length > 0){
+            result = menus.map((menu, index) =>{
+                return(
+                    <MenuLink
+                        key={index}
+                        label={menu.name}
+                        to={menu.to}
+                        activeOnlyWhenExact={menu.exact}
+                    />
+                )
+            })
+        }
+        return result;
+    }
 }
 
 export default TopMenu;

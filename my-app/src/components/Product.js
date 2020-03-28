@@ -16,11 +16,11 @@ class Product extends Component {
                     <CardBody>
                         <CardTitle>{product.name}</CardTitle>
                         <CardText>
-                        <ul className="rating">
-                            <li>
-                                {this.showRating(product.rating)}
-                            </li>
-                        </ul>
+                            <ul className="rating">
+                                <li>
+                                    {this.showRating(product.rating)}
+                                </li>
+                            </ul>
                         </CardText>
                         <CardSubtitle>{product.price}$</CardSubtitle>
                        
