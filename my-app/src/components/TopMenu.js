@@ -14,10 +14,11 @@ import {
     DropdownMenu,
     DropdownItem,
     NavbarText,
-    Container
+    Container,
+
 } from 'reactstrap';
 import { Link } from "react-router-dom";
-import "../components/TopMenu.css"
+import "../components/TopMenu.css";
 
 const TopMenu = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -28,56 +29,64 @@ const TopMenu = (props) => {
         <div className="boxNav">
             <Container >
                 <Navbar className="NavBar" light expand="md">
-                    <NavbarBrand className="NavbarBrand" href="/"><img className="logo"  src={logo} alt="logo" ></img>  
+                    <NavbarBrand className="NavbarBrand" href="/"><img className="logo" src={logo} alt="logo" ></img>
                     </NavbarBrand>
-                        <NavbarToggler onClick={toggle} />
-                        <Collapse isOpen={isOpen} navbar>
-                            <Nav className="mr-auto ml-auto" navbar>
+                    <NavbarToggler onClick={toggle} />
+                    <Collapse isOpen={isOpen} navbar>
+                        <Nav className="mr-auto ml-auto" navbar>
 
-                                 <NavItem >
-                                    <NavLink>
-                                       
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem >
-                                    <NavLink>
+                            <NavItem >
+                                <NavLink >
+                                    <Link to="/">Home</Link>
+                                </NavLink>
+                            </NavItem>
+                            <NavItem >
+                                <NavLink>
+                                    <li>
                                         <Link to="/about">About</Link>
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem >
-                                    <NavLink>
+                                    </li>
+                                </NavLink>
+                            </NavItem>
+                            <NavItem >
+                                <NavLink>
+                                    <li>
                                         <Link to="/contact">Contact</Link>
-                                    </NavLink>
-                                </NavItem>
-                            
+                                    </li>
+                                </NavLink>
+                            </NavItem>
 
-                                <UncontrolledDropdown nav inNavbar>
-                                    <DropdownToggle nav caret>
-             
+
+                            <UncontrolledDropdown nav inNavbar>
+                                <DropdownToggle nav caret>
+                                    <NavLink>
+                                        <li>
                                             <Link to="/shop">Shop</Link>
-                                        
-              </DropdownToggle>
-                                    <DropdownMenu right>
-                                        <DropdownItem>
+                                        </li>
+                                    </NavLink>
+                                </DropdownToggle>
+                                <DropdownMenu right>
+                                    <DropdownItem>
                                         <Link to="/cart">Cart</Link>
+                                    </DropdownItem>
+                                    <DropdownItem>
+                                        CheckOut
                 </DropdownItem>
-                                        <DropdownItem>
-                                            CheckOut
+                                    <DropdownItem divider />
+                                    <DropdownItem>
+                                        Go Shop
                 </DropdownItem>
-                                        <DropdownItem divider />
-                                        <DropdownItem>
-                                            Go Shop
-                </DropdownItem>
-                                    </DropdownMenu>
-                                </UncontrolledDropdown>
-                            </Nav>
-                            <NavbarText>
-                                <div className="icon">
+                                </DropdownMenu>
+                            </UncontrolledDropdown>
+
+                        </Nav>
+                        <NavbarText>
+                            <div className="icon">
                                 <i className="fad fa-cart-plus"></i>
-                                
-                                </div>
-                            </NavbarText>
-                        </Collapse>
+
+                            </div>
+                        </NavbarText>
+
+                    </Collapse>
                 </Navbar>
             </Container>
         </div>

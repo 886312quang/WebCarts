@@ -46,7 +46,8 @@ ProductsContainer.propType = {
         })
 
     ).isRequired,
-    onChangeMessages: PropTypes.func.isRequired
+    onChangeMessages: PropTypes.func.isRequired,
+    onAddtocart:PropTypes.func.isRequired
 }
 const mapStateToProps = state => {
     return {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col} from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import "./Home.css";
 import TopMenu from "../components/TopMenu";
 import Anh from './img/feature-1.jpg';
