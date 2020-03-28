@@ -5,8 +5,7 @@ var initialState = [
         img: "https://salt.tikicdn.com/cache/w1200/ts/product/86/a7/ec/f1fb81750aabd12836b50a76549f8e85.jpg",
         price: 500,
         inventory: 100,
-        rating: 5,
-        slug: JBL1
+        rating: 5
     },
     {
         id:2,
@@ -14,8 +13,7 @@ var initialState = [
         img:"https://salt.tikicdn.com/cache/w1200/ts/product/fb/08/b0/bb81006e1de5b73a7794e47da2e79466.jpg",
         price: 500,
         inventory: 100,
-        rating: 5,
-        slug: JBL2
+        rating: 5
     }
     ,
     {
@@ -24,8 +22,7 @@ var initialState = [
         img: "https://salt.tikicdn.com/cache/w1200/ts/product/41/08/aa/22701a48571e24b13154786e8407f6f4.jpg",
         price: 500,
         inventory: 100,
-        rating:4,
-        slug: JBL3
+        rating:4
     }
 ]
 

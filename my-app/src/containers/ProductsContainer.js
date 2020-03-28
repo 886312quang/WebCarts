@@ -18,11 +18,13 @@ class ProductsContainer extends Component {
         );
     }
     showProducts(products) {
+        
         var result = null;
-        var { onAddtocart, onChangeMessages } = this.props;
+        var { onAddtocart, onChangeMessages, match } = this.props;
         if (products.length > 0) {
             result = products.map((product, index) => {
                 return <Product
+                    match={match}
                     key={index}
                     product={product}
                     onAddtocart={onAddtocart}

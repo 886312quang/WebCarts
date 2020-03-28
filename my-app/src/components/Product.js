@@ -4,11 +4,12 @@ import {
     CardTitle, CardSubtitle, Button, Col
 } from 'reactstrap';
 import './Product.css'
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import * as Messages from './../contants/Messages';
+
 class Product extends Component {
     render() {
-        var { product } = this.props;
+        var { product, match } = this.props;
         return (
             <Col sm="4">
                 <Card className="text-center shadow p-3 mb-5 bg-white rounded Card">
@@ -31,12 +32,15 @@ class Product extends Component {
                                 <Link to="/cart"> <i className="fad fa-cart-plus Card-cart"></i></Link>   
                             </a>
                         </div>
+                        <NavLink to={`${match.url}/${product.name}`}>
+                            <h2>Show</h2>
+                        </NavLink>
                     </CardBody>
                 </Card>
             </Col>
         )
     }
-    showRating(rating){
+        showRating(rating){
         var result =[];
 
         for(var i=1;i<= rating; i++){
