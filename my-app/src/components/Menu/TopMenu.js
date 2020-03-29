@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from "./img/logo1-1.png";
-import "./fontawesome-pro-5.12.0-web/css/all.css"
+import logo from "./logo1-1.png";
+import "./../fontawesome-pro-5.12.0-web/css/all.css"
 import {
     Navbar,
     NavbarBrand,
@@ -9,7 +9,7 @@ import {
 
 } from 'reactstrap';
 import { Route, Link } from "react-router-dom";
-import "../components/TopMenu.css";
+import "./TopMenu.css";
 
 const menus = [
     {

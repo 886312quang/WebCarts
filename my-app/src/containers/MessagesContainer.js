@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Message from './../components/Message';
+import Message from '../components/Messsages/Message';
 import PropTypes from 'prop-types';
 
 

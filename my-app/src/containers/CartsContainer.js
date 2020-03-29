@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
-import Carts from './../components/Carts';
-import CartItem from './../components/CartItem';
-import CartResult from './../components/CartResult';
+import Carts from './../components/Cart/Carts';
+import CartItem from './../components/Cart/CartItem';
+import CartResult from './../components/Cart/CartResult';
 import {actRemoveItemInCart, actChangeMesssages, actUpdateItemInCart} from './../actions/index';
 
 import * as Message from './../contants/Messages';

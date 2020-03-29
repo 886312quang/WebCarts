@@ -3,8 +3,8 @@ import {
   BrowserRouter as Router,
   Route, Switch
 } from "react-router-dom";
-import Footer from "./components/Footer";
-import TopMenu from './components/TopMenu';
+import Footer from "./components//Footer/Footer";
+import TopMenu from './components/Menu/TopMenu'
 import routes from './routes';
 import './App.css'
 

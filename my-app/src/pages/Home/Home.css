@@ -3,7 +3,7 @@
   overflow-y: hidden;
 }
 header {
-  background: url(./img/hero-image.jpg);
+  background: url(./hero-image.jpg);
   width: 100%;
   min-height: 765px;
   background-size: cover;
@@ -256,7 +256,7 @@ i.fad.fa-search {
   padding-bottom: 20px;
 }
 .img-bg {
-  background: url(./img/sec-4.jpg);
+  background: url(./sec-4.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;

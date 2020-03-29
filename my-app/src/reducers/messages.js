@@ -4,7 +4,7 @@ var initialState = Messages.MSG_WELLCOME;
 
 const messages = (state = initialState, action) => {
     switch (action.type) {
-        case Types.CHANGE_MESSAGES:
+        case Types.CHANGE_MESSAGES: 
             return action.messages;
         default: return state;
     }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Table, Container } from "reactstrap";
-import MessagesContainer from "./../containers/MessagesContainer";
+import MessagesContainer from "../../containers/MessagesContainer";
 class Carts extends Component {
     render() {
         return (

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Row, Container } from "reactstrap";
 
-import MessagesContainer from "./../containers/MessagesContainer";
+import MessagesContainer from "../../containers/MessagesContainer";
 class Products extends Component {
 
     render() {

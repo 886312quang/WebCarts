@@ -1,6 +1,6 @@
 import React from 'react';
-import "./fontawesome-pro-5.12.0-web/css/all.css"
-import "../components/Footer.css"
+import "./../fontawesome-pro-5.12.0-web/css/all.css"
+import "./Footer.css"
 import { Row, Button, Col, Input, Container } from 'reactstrap';
 
 const Footer = (props) => {

@@ -4,9 +4,8 @@ import {
     CardTitle, CardSubtitle, Button, Col
 } from 'reactstrap';
 import './Product.css'
-import { NavLink ,Route } from "react-router-dom";
-import * as Messages from './../contants/Messages';
-import View from './View';
+import { NavLink  } from "react-router-dom";
+import * as Messages from '../../contants/Messages';
 class Product extends Component {
     render() {
         var { product, match } = this.props;
@@ -16,21 +15,17 @@ class Product extends Component {
                     <CardImg top width="100%" src={product.img} alt="Card image cap" className="ImgProduct" />
                     <CardBody>
                         <CardTitle>{product.name}</CardTitle>
-                        <CardText>
-                            <ul className="rating">
-                                <li>
-                                    {this.showRating(product.rating)}
-                                </li>
-                            </ul>
-                        </CardText>
+                            <div className="rating">
+                                {this.showRating(product.rating)}
+                            </div>                  
                         <CardSubtitle>{product.price}$</CardSubtitle>
                        
                         <CardText className="inventory">Warehouse:{product.inventory}</CardText>
                         <div className="cart">
-                            <a onClick={() => this.onAddtocart(product)} >
+                            <div onClick={() => this.onAddtocart(product)} >
                                 <Button>Addtocart</Button>
                                 <NavLink to="/cart"> <i className="fad fa-cart-plus Card-cart"></i></NavLink>   
-                            </a>
+                            </div>
                         </div>
                         <NavLink to={`${match.url}/${product.name}`}>
                             <h2>Show</h2>              

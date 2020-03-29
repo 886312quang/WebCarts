@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './Cart.css';
-import * as Messages from './../contants/Messages';
+import * as Messages from '../../contants/Messages';
 
 class CartItem extends Component {
   

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 import Shop from './containers/ProductsContainer';
 import Cart from './containers/CartsContainer';
-import View from './components/View';
-import NotFound from './components/NotFound';
+import View from './components/View/View';
+import NotFound from './pages/NotFound/NotFound';
 const routes = [
     {
         path : '/',

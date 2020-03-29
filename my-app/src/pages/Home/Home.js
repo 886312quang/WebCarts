@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "./Home.css";
-
-
-import Anh from './img/feature-1.jpg';
-import Color from './img/color-speaker.jpg';
-import PlayVido from './img/play-video.png';
-import review from './img/review-1.jpg'
-import review2 from './img/review-2.jpg'
-import review3 from './img/review-3.jpg'
+import Anh from './feature-1.jpg';
+import Color from './color-speaker.jpg';
+import PlayVido from './play-video.png';
+import review from './review-1.jpg'
+import review2 from './review-2.jpg'
+import review3 from './review-3.jpg'
 class Home extends Component {
     render() {
         return (
