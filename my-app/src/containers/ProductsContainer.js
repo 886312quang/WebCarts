@@ -7,6 +7,7 @@ import { actAddToCart, actChangeMesssages } from './../actions/index';
 
 
 
+
 class ProductsContainer extends Component {
 
     render() {

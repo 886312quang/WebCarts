@@ -4,9 +4,9 @@ import {
     CardTitle, CardSubtitle, Button, Col
 } from 'reactstrap';
 import './Product.css'
-import { NavLink, Link } from "react-router-dom";
+import { NavLink ,Route } from "react-router-dom";
 import * as Messages from './../contants/Messages';
-
+import View from './View';
 class Product extends Component {
     render() {
         var { product, match } = this.props;
@@ -29,17 +29,18 @@ class Product extends Component {
                         <div className="cart">
                             <a onClick={() => this.onAddtocart(product)} >
                                 <Button>Addtocart</Button>
-                                <Link to="/cart"> <i className="fad fa-cart-plus Card-cart"></i></Link>   
+                                <NavLink to="/cart"> <i className="fad fa-cart-plus Card-cart"></i></NavLink>   
                             </a>
                         </div>
                         <NavLink to={`${match.url}/${product.name}`}>
-                            <h2>Show</h2>
+                            <h2>Show</h2>              
                         </NavLink>
-                    </CardBody>
-                </Card>
+                    </CardBody>             
+                </Card> 
             </Col>
-        )
+        )     
     }
+        
         showRating(rating){
         var result =[];
 
