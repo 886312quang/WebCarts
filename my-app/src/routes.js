@@ -5,6 +5,7 @@ import Shop from './containers/ProductsContainer';
 import Cart from './containers/CartsContainer';
 import View from './components/View/View';
 import NotFound from './pages/NotFound/NotFound';
+import ShopActionPage from './pages/Shop/ShopActionPage';
 const routes = [
     {
         path : '/',
@@ -13,8 +14,23 @@ const routes = [
     },
     {
         path : '/shop',
-        exact: false,
+        exact: true,
         main: ({match}) => <Shop match={match}/>
+    },
+    {
+        path : '/shop/add',
+        exact: true,
+        main: ({history}) => <ShopActionPage history={history} />
+    },
+    {
+        path : '/shop/:id',
+        exact: true,
+        main: ({match,history}) => <View match={match} history={history} />
+    },
+    {
+        path : '/shop/:id/edit',
+        exact: true,
+        main: ({match,history}) => <ShopActionPage match={match} history={history} />
     },
     {
         path : '/cart',
@@ -25,13 +41,7 @@ const routes = [
         path : '',
         exact: false,
         main: () => <NotFound/>
-    },
-    {
-        path : '/shop/:name',
-        exact: false,
-        main: ({match}) => <View match={match}/>
-    },
-
+    }
 ]
 
 export default routes;

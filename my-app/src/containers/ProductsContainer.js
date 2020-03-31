@@ -10,32 +10,58 @@ import callApi from './../utils/apiCaller';
 
 class ProductsContainer extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            products : []
+            products: []
         }
     }
 
-    componentDidMount(){
-        callApi('products','GET',null).then(res =>{
+    componentDidMount() {
+        callApi('products', 'GET', null).then(res => {
             this.setState({
                 products: res.data
             })
         })
     }
 
+    onDelete = (id) =>{
+        var {products} =this.state;
+        callApi(`products/${id}`,'DELETE', null).then(res =>{
+            if(res.status === 200){ // OK
+                var index = this.findIndex(products, id)
+                if( index !== -1)
+                {
+                    products.splice(index,1);
+                    this.setState({
+                        products:products
+                    })
+                }      
+            }
+        })
+    }
+    findIndex =(products,id)=>{
+        var result =-1;
+        for (var i = 0; i < products.length; i++) {
+            if (products[i]._id === id) {
+                result = i;
+            }
+        }
+        return result;
+    }
     render() {
-        //var { products } = this.props;
-        var {products} = this.state;
+        var { products } = this.state;
         return (
             <Products>
                 {this.showProducts(products)}
             </Products>
         );
     }
+
+    
+
     showProducts(products) {
-        
+
         var result = null;
         var { onAddtocart, onChangeMessages, match } = this.props;
         if (products.length > 0) {
@@ -46,6 +72,8 @@ class ProductsContainer extends Component {
                     product={product}
                     onAddtocart={onAddtocart}
                     onChangeMessages={onChangeMessages}
+                    onDelete={this.onDelete}
+
                 />
             });
         }
@@ -66,7 +94,7 @@ ProductsContainer.propType = {
 
     ).isRequired,
     onChangeMessages: PropTypes.func.isRequired,
-    onAddtocart:PropTypes.func.isRequired
+    onAddtocart: PropTypes.func.isRequired
 }
 const mapStateToProps = state => {
     return {
@@ -80,7 +108,8 @@ const mapDispatchToProps = (dispatch, props) => {
         },
         onChangeMessages: (messages) => {
             dispatch(actChangeMesssages(messages));
-        }
+        },
+
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsContainer);

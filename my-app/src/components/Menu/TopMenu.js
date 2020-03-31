@@ -20,11 +20,15 @@ const menus = [
     {
         name: 'Shop',
         to: '/shop',
-        exact: false
+        exact: true
     },
     {
         name: 'Cart',
         to: '/cart',
+        exact: false
+    },{
+        name: 'Edit Items',
+        to: '/shop/add',
         exact: false
     }
 ]

@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-
+import { Container } from "reactstrap";
 class View extends Component {
+   
     render() {
-        var {match} = this.props;
+        var { match } = this.props;
         var name = match.params.name
         return (
-        <h2>View product {name}</h2>
+            <Container className='text-center View'>
+                <h2>{name}</h2>
+            </Container>
         );
     }
 }

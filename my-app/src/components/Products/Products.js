@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Row, Container } from "reactstrap";
+import { Row, Container} from "reactstrap";
+import {NavLink} from 'react-router-dom';
 
 import MessagesContainer from "../../containers/MessagesContainer";
 class Products extends Component {
@@ -13,7 +14,8 @@ class Products extends Component {
                 </div>
                 <Container>   
                     <section className="section">
-                        <h1 className="section-heading text-center">All product</h1>     
+                        <h1 className="section-heading text-center">All product</h1> 
+                        <NavLink to="/shop/add"  className="btn btn-danger addItem">Add Item</NavLink>
                         <Row>      
                             {this.props.children}
                         </Row>

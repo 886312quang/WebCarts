@@ -53,3 +53,7 @@ h2.text-center {
 p.text-center{
     color: navajowhite;
 }
+.addItem{
+    width: 150px;
+    margin-bottom: 25px;
+}

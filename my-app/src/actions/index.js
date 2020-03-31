@@ -20,6 +20,7 @@ export const actRemoveItemInCart = (product) =>{
         product
     }
 }
+
 export const actUpdateItemInCart = (product , quantity) => {
     return {
         type : Types.UPDATE_ITEM_IN_CART,
