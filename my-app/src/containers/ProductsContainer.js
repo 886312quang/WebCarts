@@ -4,9 +4,6 @@ import Product from './../components/Products/Product';
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 import { actAddToCart, actChangeMesssages, actFetchProductRequest, actDeleteProductRequest } from './../actions/index';
-import callApi from './../utils/apiCaller';
-
-
 
 class ProductsContainer extends Component {
 

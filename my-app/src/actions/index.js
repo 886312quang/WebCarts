@@ -16,9 +16,14 @@ export const actFetchProductRequest = () =>{
 export const actDeleteProductRequest = (id) => {
     return dispatch => {
         return callApi(`products/${id}`, 'DELETE', null).then(res => {
-            dispatch(actDeleteProduct(id)
-            )
+            dispatch(actDeleteProduct(id))
         })
+    }
+}
+export const actDeleteProduct = (id) => {
+    return {
+        type : Types.DELETE_PRODUCT,
+        id
     }
 }
 export const actAddProductRequest = (product) =>{
@@ -34,10 +39,18 @@ export const actAddProduct = (product) =>{
         product
     }
 }
-export const actDeleteProduct = (id) => {
+export const actGetProductRequest = (id) => {
+    return dispatch => {
+         return callApi(`products/${id}`,'GET',null).then(res => {
+            dispatch(actGetProduct(res.data))
+            console.log(res.data)
+        })
+    }
+}
+export const actGetProduct = (product) => {
     return {
-        type : Types.DELETE_PRODUCT,
-        id
+        type : Types.EDIT_PRODUCT,
+        product
     }
 }
 

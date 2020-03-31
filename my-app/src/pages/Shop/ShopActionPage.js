@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Button } from 'reactstrap';
 import callApi from '../../utils/apiCaller';
-import { actAddProductRequest } from './../../actions/index';
+import { actAddProductRequest, actGetProductRequest } from './../../actions/index';
 import { connect } from 'react-redux';
-import products from '../../reducers/products';
+
 
 
 class ShopActionPages extends Component {
@@ -24,18 +24,21 @@ class ShopActionPages extends Component {
         var { match } = this.props;
         if (match) {
             var id = match.params.id
-            callApi(`products/${id}`, 'GET', null).then(res => {
-                var data = res.data;
-                this.setState({
-                    name: data.name,
-                    id: data.id,
-                    price: data.price,
-                    inventory: data.inventory,
-                    rating: data.rating,
-                    img: data.img
-                })
-            })
+            this.props.onEditProduct(id);
         }
+    }
+    componentWillReceiveProps(nextProps) {
+        if(nextProps && nextProps.itemEditing)
+        var {itemEditing} =nextProps;
+        this.setState({
+            name: itemEditing.name,
+            id: itemEditing.id,
+            price: itemEditing.price,
+            inventory: itemEditing.inventory,
+            rating: itemEditing.rating,
+            img: itemEditing.img,
+
+        })
     }
     onChange = (e) => {
         var target = e.target;
@@ -145,11 +148,19 @@ class ShopActionPages extends Component {
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        itemEditing: state.itemEditing
+    }
+}
 const mapDispatchToProps = (dispatch,props)=>{
     return {
         onAddProduct: (product) =>{
             dispatch(actAddProductRequest(product))
+        },
+        onEditProduct: (id) =>{
+            dispatch(actGetProductRequest(id))
         }
     }
 }
-export default connect(null,mapDispatchToProps)(ShopActionPages);
+export default connect(mapStateToProps,mapDispatchToProps)(ShopActionPages);
