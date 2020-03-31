@@ -3,54 +3,35 @@ import Products from './../components/Products/Products';
 import Product from './../components/Products/Product';
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
-import { actAddToCart, actChangeMesssages } from './../actions/index';
+import { actAddToCart, actChangeMesssages, actFetchProductRequest, actDeleteProductRequest } from './../actions/index';
 import callApi from './../utils/apiCaller';
 
 
 
 class ProductsContainer extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            products: []
-        }
-    }
-
     componentDidMount() {
-        callApi('products', 'GET', null).then(res => {
-            this.setState({
-                products: res.data
-            })
-        })
+        this.props.fetchAllProduct();
     }
 
     onDelete = (id) =>{
-        var {products} =this.state;
-        callApi(`products/${id}`,'DELETE', null).then(res =>{
-            if(res.status === 200){ // OK
-                var index = this.findIndex(products, id)
-                if( index !== -1)
-                {
-                    products.splice(index,1);
-                    this.setState({
-                        products:products
-                    })
-                }      
-            }
-        })
-    }
-    findIndex =(products,id)=>{
-        var result =-1;
-        for (var i = 0; i < products.length; i++) {
-            if (products[i]._id === id) {
-                result = i;
-            }
-        }
-        return result;
+        // var {products} =this.state;
+        // callApi(`products/${id}`,'DELETE', null).then(res =>{
+        //     if(res.status === 200){ // OK
+        //         var index = this.findIndex(products, id)
+        //         if( index !== -1)
+        //         {
+        //             products.splice(index,1);
+        //             this.setState({
+        //                 products:products
+        //             })
+        //         }      
+        //     }
+        // })
+        this.props.onDeleteProduct(id);
     }
     render() {
-        var { products } = this.state;
+        var { products } = this.props;
         return (
             <Products>
                 {this.showProducts(products)}
@@ -109,6 +90,12 @@ const mapDispatchToProps = (dispatch, props) => {
         onChangeMessages: (messages) => {
             dispatch(actChangeMesssages(messages));
         },
+        fetchAllProduct : () => {
+            dispatch(actFetchProductRequest());
+        },
+        onDeleteProduct : (id) => {
+            dispatch(actDeleteProductRequest(id));
+        }
 
     }
 }

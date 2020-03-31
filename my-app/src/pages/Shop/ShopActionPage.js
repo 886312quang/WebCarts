@@ -49,9 +49,15 @@ class ShopActionPages extends Component {
         e.preventDefault();
         var { id, name, img, rating, inventory, price } = this.state;
         var { history, match } = this.props;
-        var _id = match.params.id;
-        if (id) {
-            callApi(`products/${_id}`, 'PUT', {
+        var _id =null;
+        if(match){
+            _id = match.params.id;
+        }
+        else{
+            _id = 0;
+        }
+        if (_id === 0) {
+            callApi('products', 'POST', {
                 name: name,
                 id: id,
                 price: price,
@@ -63,8 +69,9 @@ class ShopActionPages extends Component {
             }).catch(err => {
                 console.log(err)
             })
-        } else {
-            callApi('products', 'POST', {
+           
+        } else {          
+            callApi(`products/${_id}`, 'PUT', {
                 name: name,
                 id: id,
                 price: price,

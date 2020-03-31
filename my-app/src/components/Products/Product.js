@@ -35,7 +35,7 @@ class Product extends Component {
                             </div>
                         </div>
                         <NavLink to={`${match.url}/${product._id}`}>
-                            <h2 onClick={() => this.onViewItem(product)}>Show</h2>
+                            <h2>Show</h2>
                         </NavLink>
                         <div className="delete"><i className="fad fa-trash"
                             onClick={() => this.onDelete(product._id)}
