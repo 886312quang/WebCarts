@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Button } from 'reactstrap';
 import callApi from '../../utils/apiCaller';
-
+import { actAddProductRequest } from './../../actions/index';
+import { connect } from 'react-redux';
+import products from '../../reducers/products';
 
 
 class ShopActionPages extends Component {
@@ -49,28 +51,26 @@ class ShopActionPages extends Component {
         e.preventDefault();
         var { id, name, img, rating, inventory, price } = this.state;
         var { history, match } = this.props;
-        var _id =null;
-        if(match){
+        var product = {
+            name: name,
+            id:id,
+            img:img,
+            rating:rating,
+            inventory:inventory,
+            price:price
+        }
+
+        var _id = null;
+        if (match) {
             _id = match.params.id;
         }
-        else{
+        else {
             _id = 0;
         }
         if (_id === 0) {
-            callApi('products', 'POST', {
-                name: name,
-                id: id,
-                price: price,
-                inventory: inventory,
-                rating: rating,
-                img: img
-            }).then(res => {
-                history.push("/shop")
-            }).catch(err => {
-                console.log(err)
-            })
-           
-        } else {          
+            this.props.onAddProduct(product);
+            history.goBack();
+        } else {
             callApi(`products/${_id}`, 'PUT', {
                 name: name,
                 id: id,
@@ -145,4 +145,11 @@ class ShopActionPages extends Component {
         )
     }
 }
-export default ShopActionPages;
+const mapDispatchToProps = (dispatch,props)=>{
+    return {
+        onAddProduct: (product) =>{
+            dispatch(actAddProductRequest(product))
+        }
+    }
+}
+export default connect(null,mapDispatchToProps)(ShopActionPages);
