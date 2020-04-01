@@ -4,7 +4,7 @@ import {
   Route, Switch
 } from "react-router-dom";
 import Footer from "./components//Footer/Footer";
-import TopMenu from './components/Menu/TopMenu'
+
 import routes from './routes';
 import './App.css'
 
@@ -13,7 +13,6 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <TopMenu />
           <Switch>
             {this.showContentMenus(routes)}
           </Switch>

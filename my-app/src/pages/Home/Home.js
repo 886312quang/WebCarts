@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
+import TopMenu from './../../components/Menu/TopMenu'
 import "./Home.css";
 import Anh from './feature-1.jpg';
 import Color from './color-speaker.jpg';
@@ -12,6 +13,7 @@ class Home extends Component {
         return (
             <div className="Home">
                 <header>
+                    <TopMenu/>
                     <Container>
                         <Row>
                             <Col sm="6">

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Button } from 'reactstrap';
-import callApi from '../../utils/apiCaller';
-import { actAddProductRequest, actGetProductRequest } from './../../actions/index';
+
+import { actAddProductRequest, actGetProductRequest, actUpdateProductRequest } from './../../actions/index';
 import { connect } from 'react-redux';
 
 
@@ -10,7 +10,6 @@ class ShopActionPages extends Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
             name: '',
             id: '',
@@ -73,19 +72,10 @@ class ShopActionPages extends Component {
         if (_id === 0) {
             this.props.onAddProduct(product);
             history.goBack();
-        } else {
-            callApi(`products/${_id}`, 'PUT', {
-                name: name,
-                id: id,
-                price: price,
-                inventory: inventory,
-                rating: rating,
-                img: img
-            }).then(res => {
-                history.push("/shop")
-            }).catch(err => {
-                console.log(err)
-            })
+        }
+        else{
+           this.props.onUpdateProduct(product,_id);
+           history.goBack();
         }
     }
 
@@ -160,6 +150,9 @@ const mapDispatchToProps = (dispatch,props)=>{
         },
         onEditProduct: (id) =>{
             dispatch(actGetProductRequest(id))
+        },
+        onUpdateProduct: (product,id) => {
+            dispatch(actUpdateProductRequest(product,id))
         }
     }
 }

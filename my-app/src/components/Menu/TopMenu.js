@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import logo from "./logo1-1.png";
 import "./../fontawesome-pro-5.12.0-web/css/all.css"
 import {
@@ -6,6 +6,9 @@ import {
     NavbarBrand,
     NavbarText,
     Container,
+    Collapse,
+    NavbarToggler,
+
 
 } from 'reactstrap';
 import { Route, Link } from "react-router-dom";
@@ -56,14 +59,16 @@ class TopMenu extends Component {
                     <Navbar className="NavBar" light expand="md">
                         <NavbarBrand className="NavbarBrand"><img className="logo" src={logo} alt="logo" ></img>
                         </NavbarBrand>
+                     
                         <ul className="mr-auto ml-auto" >
                             {this.showMenus(menus)}
                         </ul>
                         <NavbarText>
                             <div className="icon">
-                                <i className="fad fa-cart-plus"></i>
+                             <Link to="/cart"> <i className="fad fa-cart-plus"></i></Link> 
                             </div>
                         </NavbarText>
+                    
                     </Navbar>
                 </Container>
             </div>

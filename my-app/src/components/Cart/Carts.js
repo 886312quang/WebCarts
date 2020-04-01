@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import {Table, Container } from "reactstrap";
 import MessagesContainer from "../../containers/MessagesContainer";
+import TopMenu from './../Menu/TopMenu';
 class Carts extends Component {
     render() {
         return (
+            <div className="Cart">
+                <TopMenu/>
            <Container>
-               <Table>
+                  <Table>
                     <thead>
                         <tr>
                         <th></th>
@@ -21,6 +24,7 @@ class Carts extends Component {
                 </Table>
                 <MessagesContainer/>
             </Container>
+            </div>
         );
     }
 }

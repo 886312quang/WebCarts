@@ -13,6 +13,12 @@ export const actFetchProductRequest = () =>{
         })
     }
 }
+export const actDeleteProduct = (id) => {
+    return {
+        type : Types.DELETE_PRODUCT,
+        id
+    }
+}
 export const actDeleteProductRequest = (id) => {
     return dispatch => {
         return callApi(`products/${id}`, 'DELETE', null).then(res => {
@@ -20,10 +26,11 @@ export const actDeleteProductRequest = (id) => {
         })
     }
 }
-export const actDeleteProduct = (id) => {
-    return {
-        type : Types.DELETE_PRODUCT,
-        id
+
+export const actAddProduct = (product) =>{
+    return{
+        type: Types.ADD_PRODUCT,
+        product
     }
 }
 export const actAddProductRequest = (product) =>{
@@ -33,9 +40,10 @@ export const actAddProductRequest = (product) =>{
         })
     }
 }
-export const actAddProduct = (product) =>{
-    return{
-        type: Types.ADD_PRODUCT,
+
+export const actGetProduct = (product) => {
+    return {
+        type : Types.EDIT_PRODUCT,
         product
     }
 }
@@ -43,16 +51,25 @@ export const actGetProductRequest = (id) => {
     return dispatch => {
          return callApi(`products/${id}`,'GET',null).then(res => {
             dispatch(actGetProduct(res.data))
-            console.log(res.data)
         })
     }
 }
-export const actGetProduct = (product) => {
+
+export const actUpdateProduct = (product,id) => {
     return {
-        type : Types.EDIT_PRODUCT,
-        product
+        type : Types.UPDATE_PRODUCT,
+        product,
+        id
     }
 }
+export const actUpdateProductRequest = (product,id) => {
+    return dispatch => {
+         return callApi(`products/${id}`,'PUT',product).then(res => {
+            dispatch(actUpdateProduct(res.data))
+        })
+    }
+}
+
 
 export const actAddToCart = (product, quantity) => {
     return {

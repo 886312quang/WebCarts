@@ -1,6 +1,6 @@
 .boxNav {   
-    border-bottom: 0.5px solid #9b9b92b3;
-    background-color:  #1908097d;
+    border-bottom: 0.5px solid #9b9b92ba;
+    background-color: #19080900;
 }
 .logo{
     background-image: url("/my-app/public/img/logo1-1.png");
@@ -12,4 +12,25 @@
 
 .fad.fa-cart-plus{
     color: #ff4e56;
+    cursor: pointer;
+}
+.NavBar ul li {
+    display: inline;
+    font-size: 20px;
+    padding: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:  all.2s ease-in-out;
+}
+.NavBar ul li a{
+    text-decoration: none;
+    transition: all.3s ease-in-out;
+}
+.NavBar ul li a:hover{
+    padding-bottom: 20px;
+    border-bottom: 4px solid rgb(170, 50, 50);
+}
+.active {
+    padding-bottom: 5px;
+    border-bottom: 4px solid rgb(170, 50, 50);
 }
